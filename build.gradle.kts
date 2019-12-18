@@ -9,9 +9,16 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
 }
-
+val arrowVersion = "0.10.3"
+val kotlinTestVersion = "3.4.1"
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("io.arrow-kt", "arrow-core", arrowVersion)
+    implementation("io.arrow-kt", "arrow-fx", arrowVersion)
+    implementation("io.arrow-kt", "arrow-syntax", arrowVersion)
+    testImplementation("io.kotlintest", "kotlintest-runner-junit5", kotlinTestVersion) {
+        exclude("io.arrow-kt")
+    }
     testCompile("junit", "junit", "4.12")
 }
 
